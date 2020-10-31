@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!-- Added a link to our external stylesheet-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
@@ -78,6 +78,53 @@
 $(document).ready(function() {
 
 // Your code here...
+
+let firstNum = ' ';
+let secondNum = ' '; 
+let operator = '+';
+
+
+
+
+$(".number").on("click", function(event) {
+  num = $(this).attr("value");
+if($(".operator").attr("value") !== "plus" || $(".operator").attr("value") !== "times" || $(".operator").attr("value") !== "minus" || $(".operator").attr("value") !== "divide" ) {
+  $("#first-number").append(num);
+} 
+else {
+  $("#second-number").append(num);
+}
+
+  
+
+  console.log(num);
+  // console.log($(this).attr("value"));
+});
+
+
+// $(".number").on("click", function(event) {
+//   secondNum = $(this).attr("value");
+//   $("#second-number").append(secondNum);
+//   if()
+
+//   // console.log(firstNum);
+//   // console.log($(this).attr("value"));
+// });
+
+
+$(".operator").on("click", function(event) {
+  operator = $(this).attr("value");
+
+  $("#operator").append(operator);
+
+  // console.log($(this).attr("value"));
+});
+$(".equal").on("click", function(event) {
+  // console.log($(this).attr("value"));
+});
+$(".clear").on("click", function(event) {
+  // console.log($(this).attr("value"));
+});
 
 
 });
