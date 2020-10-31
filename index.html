@@ -79,16 +79,17 @@ $(document).ready(function() {
 
 // Your code here...
 
-let firstNum = ' ';
-let secondNum = ' '; 
-let operator = '+';
+// var firstNum = $("#first-number");
+// var secondNum = $("#second-number"); 
+
+let operator = ' ';
 
 
 
 
 $(".number").on("click", function(event) {
   num = $(this).attr("value");
-if($(".operator").attr("value") !== "plus" || $(".operator").attr("value") !== "times" || $(".operator").attr("value") !== "minus" || $(".operator").attr("value") !== "divide" ) {
+if(operator !== "plus" && operator !== "minus" && operator !== "times" && operator !== "divide" && operator !== "power")  {
   $("#first-number").append(num);
 } 
 else {
@@ -112,18 +113,53 @@ else {
 // });
 
 
-$(".operator").on("click", function(event) {
-  operator = $(this).attr("value");
+    $(".operator").on("click", function (event) {
+        operator = $(this).attr("value");
+        $("#operator").empty();
+        $("#operator").append(operator);
 
-  $("#operator").append(operator);
+        // console.log($(this).attr("value"));
+    });
 
-  // console.log($(this).attr("value"));
-});
 $(".equal").on("click", function(event) {
+    var firstNum = $("#first-number");
+    var secondNum = $("#second-number");
+    if (operator == "plus") {
+        var result = parseInt(firstNum[0].innerText) + parseInt(secondNum[0].innerText);
+        $("#result").append(result);
+        console.log(result)
+    }
+    else if (operator == "minus") {
+        var result = parseInt(firstNum[0].innerText) - parseInt(secondNum[0].innerText);
+        $("#result").append(result);
+    }
+
+    else if (operator == "times") {
+        var result = parseInt(firstNum[0].innerText) * parseInt(secondNum[0].innerText);
+        $("#result").append(result);
+    }
+
+    else if (operator == "divide") {
+        var result = parseInt(firstNum[0].innerText) / parseInt(secondNum[0].innerText);
+        $("#result").append(result);
+    }
+
+    else if (operator == "power") {
+        var result = parseInt(firstNum[0].innerText) ** parseInt(secondNum[0].innerText);
+        $("#result").append(result);
+    }
   // console.log($(this).attr("value"));
 });
+
+
 $(".clear").on("click", function(event) {
-  // console.log($(this).attr("value"));
+    $("#first-number").empty();
+    $("#operator").empty();
+    $("#second-number").empty();
+    $("#result").empty();
+    // firstNum = "";
+    // secondNum = "";
+    operator = "";
 });
 
 
